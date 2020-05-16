@@ -33,29 +33,7 @@ def index(request):
     log_user = request.user
     categorys=Category.objects.all()
     cat=portfolio.objects.all()
-    total=Home.objects.filter(author=log_user).first()
-    about=About.objects.filter(author=log_user)
-    service=Service.objects.filter(author=log_user)
-    client=Client.objects.filter(author=log_user)
-    fact=Facts.objects.filter(author=log_user)
-    profile=Profile.objects.filter(user=log_user)
-    resume=resume_study.objects.filter(author=log_user)
-    work=work_history.objects.filter(author=log_user)
-    skill=Skill.objects.filter(author=log_user)
-    technical=Technical.objects.filter(author=log_user)
-    contact=Contact.objects.filter(author=log_user)
     context={
-        'about':about,
-        'total':total,
-        'service':service,
-        'client':client,
-        'fact':fact,
-        'profile':profile,
-        'resume':resume,
-        'work':work,
-        'skill':skill,
-        'technical':technical,
-        'contact':contact,
         'categorys':categorys,
         'cat':cat,
         'forms':forms,
