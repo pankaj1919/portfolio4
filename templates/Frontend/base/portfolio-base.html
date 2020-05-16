@@ -1,0 +1,149 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from sakura.mrkayo.com/index-demo1.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 28 Apr 2020 08:17:23 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
+
+    <title> Mr Kayo </title>
+    <link rel="icon" href="{% static 'images/icon.png' %}">
+    <meta name="description" content="freelancer web developer and web designer
+     my web development skills: HTMl5 -CSS3 - bootstrap - scss -javaScript - jQuery - fabric.js - angular.js - Ajax -PHP (MVC) - wordpress -Mysql ;; I look forward to working with you soon, and i will be in time">
+    <meta name="keywords"
+          content="HTML,CSS,jquery,JavaScript,mr kayo,saad tarek,mrkayo,mrkayo.com,karem tarek,karemtarek,saadtarek">
+    <meta name="author" content="Mr Kayo">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pe-icon-7-stroke.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slick.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body data-spy="scroll" data-target=".navbar-scrolled" data-offset="0" class="scrollspy-example">
+
+<aside class="kayo-aside">
+
+    <!-- control bar -->
+    <div class="control-bar">
+        <div class="text-center">
+            <span class="menu-toggle">
+                <i class="chart"></i>
+                <i class="chart"></i>
+                <i class="chart"></i>
+            </span>
+        </div>
+        <p class="copyright">
+            <a href="#">Mr Punky</a> - &copy; - made by love <i class="fa fa-heart"></i> <span id="test1"></span> <span id="test2"></span>
+        </p>
+    </div>
+
+    <!-- Start SlideMenu
+    ===================================-->
+    <div class="slide-menu-container">
+        <!-- start the right menu -->
+        <div class="slide-menu menu-opend navbar-scrolled kayo-menu-style-2">
+            <div class="kayo-user-info">
+                <!-- Start Social media -->
+                <ul class="social-media list-unstyled text-center">
+                    <li><a href="#" class="facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#" class="twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#" class="google-plus" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#" class="linkedin" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="#" class="behance" target="_blank"><i class="fa fa-behance"></i></a></li>
+                </ul>
+                <!-- End Social media -->
+                <div class="kayo-img-box">
+                    <div class="kayo-img">
+                        <img src="{% static 'images/logo.jpg' %}" alt=""/>
+                    </div>
+                </div>
+            </div>
+            <div class="nav">
+                <!-- Start Menu Links -->
+                <ul class="list-unstyled kayo-links">
+                    <li class="active">
+                        <a href="#home"><i class="fa fa-home"></i>Home</a>
+                    </li>
+                    <li>
+                        <a href="#aboutMe"><i class="glyphicon glyphicon-user"></i>About Me</a>
+                    </li>
+                    <li>
+                        <a href="#portfolio"><i class="fa fa-laptop"></i>Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="#resume"><i class="glyphicon glyphicon-leaf"></i>Resume</a>
+                    </li>
+                    <!-- <li>
+                        <a href="#blog"><i class="fa fa-newspaper-o"></i>Blog</a>
+                    </li> -->
+                    <li>
+                        <a href="#contact"><i class="glyphicon glyphicon-headphones"></i>Contact Me</a>
+                    </li>
+                </ul>
+                <!-- End Menu Links -->
+            </div>
+        </div>
+        <!-- start the right menu -->
+    </div>
+    <!-- End SlideMenu ================-->
+
+</aside>
+
+<main class="main-page-content">
+
+    <!-- Start Home
+    ===================================-->
+    {% block home %}
+    {% endblock home %}
+    <!-- End Home ==================-->
+
+    <!-- Start About Me
+   ===================================-->
+    {% block aboutme %}
+    {% endblock aboutme %}
+    <!-- End About Me ==================-->
+
+    <!-- Start portfolio
+    ===================================-->
+    {% block portfolio %}
+    {% endblock portfolio %}
+    <!-- End portfolio ================-->
+
+    <!-- Start Resume
+    ===================================-->
+    {% block resume %}
+    {% endblock resume %}
+    <!-- End Resume ===================-->
+
+    <!-- Start Contact
+    ===================================-->
+    {% block contact %}
+    {% endblock contact %}
+    <!-- End Contact ==================-->
+
+</main>
+
+<!-- Start Loading
+===================================-->
+{% block loading %}
+{% endblock loading %}
+<!-- End Loading ==================-->
+
+<!-- start the script -->
+{% block script %}
+{% endblock script %}
+<!-- end the script -->
+</body>
+
+<!-- Mirrored from sakura.mrkayo.com/index-demo1.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 28 Apr 2020 08:18:17 GMT -->
+</html>

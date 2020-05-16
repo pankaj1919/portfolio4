@@ -1,0 +1,138 @@
+{% load static %}
+{% load widget_tweaks %}
+<!doctype html>
+<html class="no-js" lang="">
+
+
+<!-- Mirrored from www.radiustheme.com/demo/html/psdboss/akkhor/akkhor/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 11 Apr 2020 13:53:47 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Register</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicon.png' %}">
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/normalize.css' %}">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/all.min.css' %}">
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="{% static 'assets/fonts/flaticon.css' %}">
+    <!-- Full Calender CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/fullcalendar.min.css' %}">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <!-- Modernize js -->
+    <script src="{% static 'assets/js/modernizr-3.6.0.min.js' %}"></script>
+</head>
+
+<body>
+    <!-- Preloader Start Here -->
+	<div id="preloader"></div>
+		<style>
+			#preloader {
+				background: #ffffff url({% static 'assets/img/preloader.gif' %}) no-repeat scroll center center;
+				height: 100%;
+				left: 0;
+				overflow: visible;
+				position: fixed;
+				top: 0;
+				width: 100%;
+				z-index: 9999999;
+			  }
+		</style>
+    <!-- Preloader End Here -->
+    <!-- Login Page Start Here -->
+    <div class="login-page-wrap">
+		<style>
+			.login-page-wrap {
+				background-image: url({% static 'assets/img/figure/login-bg.jpg' %});
+				background-repeat: no-repeat;
+				background-position: top;
+				position: fixed;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				height: 100%;
+				width: 100%;
+			}
+		</style>
+        <div class="login-page-content">
+            <div class="login-box">
+                <div class="item-logo">
+                    <img src="{% static 'assets/img/logo2.png' %}" alt="logo">
+				</div>
+				<hr>
+                <form action="" method="POST" class="login-form">
+					{% csrf_token %}
+                    <div class="form-group">
+                        <label>Username</label>
+                        {% render_field form.username class="form-control" placeholder="" %}
+                        {{form.username.errors}}
+                    </div>
+                    <!-- <div class="form-group">
+                        <label>First Name</label>
+                        {% render_field form.first_name class="form-control" placeholder="" %}
+					</div>
+					<div class="form-group">
+                        <label>Last Name</label>
+                        {% render_field form.last_name class="form-control" placeholder="" %}
+					</div> -->
+					<div class="form-group">
+                        <label>E-Mail</label>
+                        {% render_field form.email class="form-control" placeholder="" %}
+                        {{form.email.errors}}
+					</div>
+					<div class="form-group">
+                        <label>Password</label>
+                        {% render_field form.password1 class="form-control" placeholder="" %}
+                        {{form.password1.errors}}
+					</div>
+					<div class="form-group">
+                        <label>Confirm Password</label>
+                        {% render_field form.password2 class="form-control" placeholder="" %}
+                        {{form.password2.errors}}
+                    </div>
+					<div class="form-group">
+							<button type="submit" value="Login" class="login-btn">Signup</button>
+					</div>
+					<div class="mt-4">
+						<div class="d-flex justify-content-center links">
+							Already have an account ? <a href="{% url 'login' %}" class="ml-2">Log-in Here</a>
+						</div>
+					</div>
+					
+				</form>
+
+            </div>
+        </div>
+    </div>
+    <!-- Login Page End Here -->
+	<script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+    <!-- Plugins js -->
+    <script src="{% static 'assets/js/plugins.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <!-- Scroll Up Js -->
+    <script src="{% static 'assets/js/jquery.scrollUp.min.js' %}"></script>
+    <!-- Custom Js -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+
+<!-- Mirrored from www.radiustheme.com/demo/html/psdboss/akkhor/akkhor/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 11 Apr 2020 13:54:41 GMT -->
+</html>

@@ -1,0 +1,70 @@
+{% load static %}
+{% block portfolio %}
+
+<section class="full-page" id="portfolio">
+    <div class="portfolio overlay-container">
+        <div class="kayo-intro-section">
+            <div class="overlay">
+                <div class="section-intro">
+                        <div class="text-center kayo-icon-box-container">
+                            <div class="kayo-icon-box">
+                                <span class="fa fa-laptop kayo-icon"></span>
+                            </div>
+                        </div>
+                        <h1 class="text-center">
+                            PORTFOLIO
+                        </h1>
+                    </div>
+            </div>
+        </div>
+        <div class="port-box">
+            <div class="kayo-container">
+                <div class="mrkayo-main-title">
+                    <h2>
+                        My Work
+                        <span class="kayo-line"></span>
+                    </h2>
+                </div>
+                <div class="text-center">
+                       
+                    <ul class="portfolio-sorting list-unstyled text-center kayo-taps">
+                        <li class="active" data-filter="*">All</li>
+                        {% for items in categorys %}
+                            <li data-filter=".{{items.slug}}">{{items.name}}</li>  
+                        {% endfor %}
+                                      
+                    </ul>
+                    
+                </div>
+                <div class="portfolio-items">
+                    <div class="row grid">
+                        {% for items in categorys %}
+                            {% for item in items.portfolio_set.all %}
+
+                        <div class="col-lg-4 col-md-6 col-sm-6 grid-item {{items.slug}}">
+                            <div class="portfolio-item">
+                                <div class="port-data">
+                                    <div class="port-data-front-card"><i class="fa fa-codepen"></i></div>
+                                    <div class="port-data-back-card">
+                                        <h4 class="project-name">{{item.title}}</h4>
+                                        <a href="#" target="_blank" class="port-show-info glyphicon glyphicon-lin glyphicon glyphicon-linkglyphicon glyphicon-linkglyphicon glyphicon-linkglyphicon glyphicon-linkglyphicon glyphicon-link"></a>
+                                        <div class="project-category">
+                                            <h5>{{items.name}}<i class="fa fa-codepen pull-right"></i></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="port-image">
+                                    <img src="{{ item.imageURL }}" class="img-responsive" alt="">
+                                </div>
+                            </div>
+                        </div>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div> <!--end row -->
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock portfolio %}

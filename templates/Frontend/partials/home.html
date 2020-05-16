@@ -1,0 +1,27 @@
+{% load static %}
+{% block home %}
+
+<section class="full-page" id="home">
+    <div class="home overlay-container">
+        <div class="overlay">
+            <div class="intro-section kayo-container display-table">
+                <div class="display-table-cell">
+                    <h3 class="kayo-hello">{{total.first}}</h3>
+                    <h1 class="mr-kayo">{{total.second}}</h1>
+                    <!-- <h1 class="mr-kayo">{{item.third}}</h1> -->
+
+                    <h3 class="kayo-work-description">&nbsp;<span class="kayo-work"></span></h3>
+                </div>
+            </div>
+        </div>
+        <style>
+            .home {
+                background: url("{% static 'images/worked.jpg' %}") center center no-repeat scroll;
+                background-size: cover;
+              }
+        </style>
+    </div>
+
+</section>
+
+{% endblock home %}

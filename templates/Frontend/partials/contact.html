@@ -1,0 +1,98 @@
+{% load static %}
+{% block contact %}
+<section class="full-page" id="contact">
+    <div class="contact overlay-container">
+        <div class="kayo-intro-section">
+            <div class="overlay">
+                <div class="section-intro">
+                    <div class="text-center kayo-icon-box-container">
+                        <div class="kayo-icon-box">
+                            <span class="glyphicon glyphicon-headphones kayo-icon"></span>
+                        </div>
+                    </div>
+                    <h1 class="text-center">
+                        CONTACT ME
+                    </h1>
+                </div>
+            </div>
+        </div>
+        {% for item in contact  %}
+        <div class="contact-ways">
+            <div class="kayo-container">
+                <div class="mrkayo-main-title">
+                    <h2>
+                        Get In Touch
+                        <span class="kayo-line"></span>
+                    </h2>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="kayo-icon-list-box">
+                            <div class="kayo-icon-box-container">
+                                <div class="kayo-icon-box">
+                                    <span class="glyphicon glyphicon-map-marker kayo-icon"></span>
+                                </div>
+                            </div>
+                            <div class="kayo-list-info">
+                                <h4>Location</h4>
+                                <p>
+                                    {{item.location}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="kayo-icon-list-box">
+                            <div class="kayo-icon-box-container">
+                                <div class="kayo-icon-box">
+                                    <span class="glyphicon glyphicon-phone kayo-icon"></span>
+                                </div>
+                            </div>
+                            <div class="kayo-list-info">
+                                <h4>Phone</h4>
+                                <p>
+                                    {{item.phone}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="kayo-icon-list-box">
+                            <div class="kayo-icon-box-container">
+                                <div class="kayo-icon-box">
+                                    <span class="fa fa-envelope kayo-icon"></span>
+                                </div>
+                            </div>
+                            <div class="kayo-list-info">
+                                <h4>Email</h4>
+                                <p>
+                                    {{item.email}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="contact-form">
+            <div class="overlay">
+                <div class="kayo-container">
+                    <div class="mrkayo-main-title">
+                        <h2>
+                            Send Message
+                            <span class="kayo-line"></span>
+                        </h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2 col-md-12 col-md-offset-0 col-sm-10 col-sm-offset-1">
+                            {% include "contact/contact.html" %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock contact %}

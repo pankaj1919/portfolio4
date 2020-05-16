@@ -1,0 +1,32 @@
+
+{% load widget_tweaks %}
+<form class="kayo-form" action="{% url 'contact' %}" method="post" >
+    {% csrf_token %}
+    {% if messages %}
+        {% for message in messages %}
+        <span {% if message.tags %} class="{{ message.tags }}" {% endif %} style="color: green">{{ message }}</span>
+        {% endfor %}
+    {% endif %}
+    <div class="input-row">
+        <div class="form-group">
+            {% render_field forms.name class="form-control" placeholder="Your Full Name"  %}
+        </div>
+    </div>
+    <div class="input-row">
+        <div class="form-group">
+            {% render_field forms.email class="form-control" placeholder="E-mail"  %}
+        </div>
+        <div class="form-group">
+            {% render_field forms.subject  class="form-control" placeholder="Subject" %}
+        </div>
+    </div>
+    <div class="form-group">
+        {% render_field forms.subject class="form-control" placeholder="Your Message .."  %}
+    </div>
+    <div>
+        <button class="btn kayo-btn-1 btn-block btn-rgba" type="submit"
+            name="submit_contact_form">
+            <i class="fa fa-send-o"></i> Send Your Message
+        </button>
+    </div>
+</form>

@@ -1,0 +1,115 @@
+{% extends 'Backend/base/admin-base.html' %}
+{% load static %}
+{% block content %}
+{% load widget_tweaks %}
+            <div class="dashboard-content-one">
+                <!-- Breadcubs Area Start Here -->
+                <div class="breadcrumbs-area">
+                    <h3>About Me</h3>
+                    <ul>
+                        <li>
+                            <a href="index.html">Dashboard</a>
+                        </li>
+                        <li>About Client</li>
+                    </ul>
+                </div>
+                <!-- Breadcubs Area End Here -->
+                <div class="row">
+                    <!-- Add Notice Area Start Here -->
+                    <div class="col-4-xxxl col-12">
+                        <div class="card height-auto">
+                            <div class="card-body">
+                                <div class="heading-layout1">
+                                    <div class="item-title">
+                                        <h3>Manage Client </h3>
+                                    </div>
+                                </div>
+                                <form action="" method="POST"  class="new-added-form" enctype='multipart/form-data'>
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-12-xxxl col-lg-12 col-12 form-group">
+                                            <label>Name Of Client</label>
+                                            {% render_field form.client_name class="form-control" placeholder="" %}
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-12-xxxl col-lg-12 col-12 form-group">
+                                            <label>Link of Client Platform</label>
+                                            {% render_field form.link class="form-control" placeholder="" %}
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-12-xxxl col-lg-12 col-12 form-group">
+                                            <label>Upload Client Image/Logo</label>
+                                            {% render_field form.image class="form-control-file" placeholder="" %}
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-12 form-group mg-t-8">
+                                            <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add Notice Area End Here -->
+                    <!-- All Notice Area Start Here -->
+                    <div class="col-4-xxxl col-12">
+                        <div class="card height-auto">
+                            <div class="card-body">
+                                <div class="heading-layout1">
+                                    <div class="item-title">
+                                        <h3>Client Details</h3>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>S.NO:</th>
+                                                <th>Name Of Client</th>
+                                                <th>Link Of Client Platform</th>
+                                                <th>Action</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for item in total  %}
+                                            <tr>
+                                                <td>
+                                                    {{ forloop.counter }}
+                                                </td>
+                                                <td>
+                                                    {{ item.client_name }}
+                                                </td>
+                                                <td>
+                                                    {{ item.link}}
+                                                </td>
+                                                <td>
+                                                    <a href="{% url 'updateclient' item.id %}">
+                                                        <i class="fas fa-user-edit text-dark-pastel-green"></i> Update
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href="{% url 'deleteclient' item.id %}">
+                                                        <i class="fas fa-trash-alt text-orange-red"></i> Delete
+                                                    </a>
+                                                </td>
+                                                
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{% endblock content %}

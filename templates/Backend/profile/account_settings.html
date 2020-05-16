@@ -1,0 +1,101 @@
+{% extends 'Backend/base/admin-base.html' %}
+{% load static %}
+{% block content %}
+{% load widget_tweaks %}
+
+
+<div class="dashboard-content-one">
+
+
+	<br>
+	<!-- Account Settings Area Start Here -->
+
+			<div class="row">
+				<div class="col-12">
+					<div class="card account-settings-box">
+						<div class="card-body">
+							<div class="heading-layout1 mg-b-20">
+								<div class="item-title">
+									<h3>My Details</h3>
+								</div>                                  
+							</div>
+							<div class="user-details-box">
+								<div class="item-img text-center">
+									<img src="{{user.profile.imageURL}}" alt="user">
+								</div>
+								<div class="item-content text-center">
+									<div class="info-table table-responsive">
+										<table class="table text-nowrap">
+											<h4>{{user.first_name}} {{user.last_name}}</h4>
+											<h6>{{user.profile.position}}</h6>
+											<h5>{{user.email}}</h5>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-12">
+					<div class="card">
+						<div class="card-body">
+							<div class="heading-layout1">
+								<div class="item-title">
+									<h3>My Details</h3>
+								</div>                                   
+							</div>
+							<form action="" method="POST"  class="new-added-form" enctype="multipart/form-data">
+								{% csrf_token %}
+								<div class="row">
+									<div class="col-12-xxxl col-lg-6 col-12 form-group">
+										<label>Username</label>
+										{% render_field u_form.username class="form-control" placeholder="" %}
+									</div>
+									<div class="col-12-xxxl col-lg-6 col-12 form-group">
+										<label>E-Mail</label>
+										{% render_field u_form.email class="form-control" placeholder="" %}
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-12-xxxl col-lg-6 col-12 form-group">
+										<label>First Name</label>
+										{% render_field u_form.first_name class="form-control" placeholder="" %}
+									</div>
+									<div class="col-12-xxxl col-lg-6 col-12 form-group">
+										<label>Last Name</label>
+										{% render_field u_form.last_name class="form-control" placeholder="" %}
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-12-xxxl col-lg-6 col-12 form-group">
+										<label>Position</label>
+										{% render_field p_form.position class="form-control" placeholder="" %}
+									</div>
+									<div class="col-12-xxxl col-lg-6 col-12 form-group">
+										<label>Contact No</label>
+										{% render_field p_form.phone class="form-control" placeholder="" %}
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-12-xxxl col-lg-6 col-12 form-group">
+										<label>Gender</label>
+										{% render_field p_form.gender class="form-control" placeholder="" %}
+									</div>
+									<div class="col-12-xxxl col-lg-6 col-12 form-group">
+										<label>Profile Picture</label>
+										{% render_field p_form.image class="form-control-file" placeholder="" %}
+									</div>
+								</div>
+									<div class="col-12 form-group mg-t-8">
+										<button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Update</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

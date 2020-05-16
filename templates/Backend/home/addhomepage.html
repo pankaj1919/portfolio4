@@ -1,0 +1,110 @@
+{% extends 'Backend/base/admin-base.html' %}
+{% load static %}
+{% block content %}
+{% load widget_tweaks %}
+            <div class="dashboard-content-one">
+                <!-- Breadcubs Area Start Here -->
+                <div class="breadcrumbs-area">
+                    <h3>Homepage</h3>
+                    <ul>
+                        <li>
+                            <a href="index.html">Dashboard</a>
+                        </li>
+                        <li>Homepage</li>
+                    </ul>
+                </div>
+                <!-- Breadcubs Area End Here -->
+                <div class="row">
+                    <!-- Add Notice Area Start Here -->
+                    <div class="col-4-xxxl col-12">
+                        <div class="card height-auto">
+                            <div class="card-body">
+                                <div class="heading-layout1">
+                                    <div class="item-title">
+                                        <h3>Manage Homepage</h3>
+                                    </div>
+                                </div>
+                                <form action="" method="POST"  class="new-added-form">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-12-xxxl col-lg-6 col-12 form-group">
+                                            <label>First Line Of Text in Homepage</label>
+                                            {% render_field form.first class="form-control" placeholder="First Title" %}
+                                        </div>
+                                        <div class="col-12-xxxl col-lg-6 col-12 form-group">
+                                            <label>Second Line Of Text in Homepage</label>
+                                            {% render_field form.second class="form-control" placeholder="Second Title" %}
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-12-xxxl col-lg-12 col-12 form-group">
+                                            <label>Third Of Text in Homepage</label>
+                                            {% render_field form.third class="form-control" placeholder="Third Title" %}
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-12 form-group mg-t-8">
+                                            <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add Notice Area End Here -->
+                    <!-- All Notice Area Start Here -->
+                    <div class="col-4-xxxl col-12">
+                        <div class="card height-auto">
+                            <div class="card-body">
+                                <div class="heading-layout1">
+                                    <div class="item-title">
+                                        <h3>Homepage Text</h3>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table display data-table text-nowrap">
+                                        <thead>
+                                            <tr>
+                                                <th>First Line Text</th>
+                                                <th>Second Line Text</th>
+                                                <th>Third Line Text</th>
+                                                <th>Action</th>
+                                                <th>Action</th>
+                                                <!-- <th></th> -->
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for item in total  %}
+                                            <tr>
+                                                <td>
+                                                    {{item.first}}
+                                                </td>
+                                                <td>
+                                                    {{item.second}}
+                                                </td>
+                                                <td>
+                                                    {{item.third}}
+                                                </td>
+                                                <td>
+                                                    <a href="{% url 'updatehome' item.id %}">
+                                                        <i class="fas fa-user-edit text-dark-pastel-green"></i> Update
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href="{% url 'deletehome' item.id %}">
+                                                        <i class="fas fa-trash-alt text-orange-red"></i> Delete
+                                                    </a>
+                                                </td>
+                                                
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{% endblock content %}

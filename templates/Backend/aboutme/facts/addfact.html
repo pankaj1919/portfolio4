@@ -1,0 +1,123 @@
+{% extends 'Backend/base/admin-base.html' %}
+{% load static %}
+{% block content %}
+{% load widget_tweaks %}
+            <div class="dashboard-content-one">
+                <!-- Breadcubs Area Start Here -->
+                <div class="breadcrumbs-area">
+                    <h3>About Me</h3>
+                    <ul>
+                        <li>
+                            <a href="index.html">Dashboard</a>
+                        </li>
+                        <li>About Fact</li>
+                    </ul>
+                </div>
+                <!-- Breadcubs Area End Here -->
+                <div class="row">
+                    <!-- Add Notice Area Start Here -->
+                    <div class="col-4-xxxl col-12">
+                        <div class="card height-auto">
+                            <div class="card-body">
+                                <div class="heading-layout1">
+                                    <div class="item-title">
+                                        <h3>Manage Facts </h3>
+                                    </div>
+                                </div>
+                                <form action="" method="POST"  class="new-added-form">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-12-xxxl col-lg-12 col-12 form-group">
+                                            <label>Name Of Fact</label>
+                                            {% render_field form.fact_title class="form-control" placeholder="e.g : Project " %}
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-12-xxxl col-lg-12 col-12 form-group">
+                                            <label>Fact Icon Name </label>
+                                            <a href="https://themes-pixeden.com/font-demos/7-stroke/" target="_blank">
+                                                <label>Click Here to get Icon Name</label>
+                                            </a>
+                                            
+                                            {% render_field form.fact_icon class="form-control" placeholder="e.g : pe-7s-mouse" %}
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-12-xxxl col-lg-12 col-12 form-group">
+                                            <label>Write Total Number Of Facts</label>
+                                            {% render_field form.count class="form-control" placeholder="e.g : 18" %}
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-12 form-group mg-t-8">
+                                            <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add Notice Area End Here -->
+                    <!-- All Notice Area Start Here -->
+                    <div class="col-4-xxxl col-12">
+                        <div class="card height-auto">
+                            <div class="card-body">
+                                <div class="heading-layout1">
+                                    <div class="item-title">
+                                        <h3>Facts Details</h3>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>S.NO:</th>
+                                                <th>Name Of Fact</th>
+                                                <th>Fact Icon Name</th>
+                                                <th>Total Number Of Fact</th>
+                                                <th>Action</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for item in total  %}
+                                            <tr>
+                                                <td>
+                                                    {{ forloop.counter }}
+                                                </td>
+                                                <td>
+                                                    {{ item.fact_title }}
+                                                </td>
+                                                <td>
+                                                    {{ item.fact_icon}}
+                                                </td>
+                                                <td>
+                                                    {{ item.count }}
+                                                </td>
+                                                <td>
+                                                    <a href="{% url 'updateclient' item.id %}">
+                                                        <i class="fas fa-user-edit text-dark-pastel-green"></i> Update
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href="{% url 'deleteclient' item.id %}">
+                                                        <i class="fas fa-trash-alt text-orange-red"></i> Delete
+                                                    </a>
+                                                </td>
+                                                
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{% endblock content %}

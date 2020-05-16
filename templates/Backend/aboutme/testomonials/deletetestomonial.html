@@ -1,0 +1,23 @@
+{%  extends 'Backend/base/admin-base.html' %}
+{% load static %}
+{% block content %}
+
+<br>
+<div class="dashboard-content-one">
+    <div class="breadcrumbs-area">
+	    <!-- <div class="card card-body"> -->
+			<p><h1>Are you sure you want to delete?</h1></p>
+
+			<form action="{% url 'deletetestomonial' item.id  %}" method="POST">
+				
+				{% csrf_token %}
+				<div class="col-12 form-group mg-t-8">
+					<a class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" href="{% url 'addtestomonial' %}">Cancel</a>
+					<button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Confirm</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

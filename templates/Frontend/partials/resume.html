@@ -1,0 +1,146 @@
+{% load static %}
+{% block resume %}
+
+<section class="full-page" id="resume">
+    <div class="resume overlay-container">
+        <div class="kayo-intro-section">
+            <div class="overlay">
+                <div class="section-intro">
+                    <div class="text-center kayo-icon-box-container">
+                        <div class="kayo-icon-box">
+                            <span class="glyphicon glyphicon-leaf kayo-icon"></span>
+                        </div>
+                    </div>
+                    <h1 class="text-center">
+                        RESUME
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="kayo-container education-workHistory">
+            <div class="mrkayo-main-title">
+                <h2>
+                    My Experience
+                    <span class="kayo-line"></span>
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="kayo-education">
+                        <h3 class="timeline-title">
+                            <i class="pe-7s-study"></i> <span>Education</span>
+                        </h3>
+                        <div class="timeline-content">
+                            {% for item in resume %}
+                            <div class="timeline-box">
+                                
+                                <div class="timeline-date">
+                                    {{item.time}}
+                                </div>
+                                <div class="timeline-info">
+                                    <div class="timeline-info-header">
+                                        <h3>{{item.collage}} </h3>
+                                        <p>{{item.degree}}</p>
+                                    </div>
+                                    <div class="timeline-info-details">
+                                        <p>
+                                           {{item.des|safe}}
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="kayo-experience">
+                        <h3 class="timeline-title">
+                            <i class="pe-7s-ribbon"></i> <span>Work History</span>
+                        </h3>
+                        <div class="timeline-content">
+                            {% for item in work  %}
+                            <div class="timeline-box">
+                                
+                                  
+                                <div class="timeline-date">
+                                   {{item.time}}
+                                </div>
+                                <div class="timeline-info">
+                                    <div class="timeline-info-header">
+                                        <h3>{{item.place}}</h3>
+                                        <p>{{item.post}}</p>
+                                    </div>
+                                    <div class="timeline-info-details">
+                                        <p>
+                                            {{item.des|safe}}
+                                        </p>
+                                    </div>
+                                </div>
+                                
+
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="take-my-resume">
+                <a href="#" class="kayo-btn-1"><span class="glyphicon glyphicon-cloud-download"></span> Take My
+                    Resume</a>
+            </div>
+        </div>
+        <div class="kayo-skills">
+            <div class="overlay">
+                <div class="kayo-container">
+                    <div class="soft-skills">
+                        <div class="mrkayo-main-title">
+                            <h2>
+                                Soft Skills
+                                <span class="kayo-line"></span>
+                            </h2>
+                        </div>
+                        <div class="row">
+                            {% for item in skill  %}
+                            <div class="col-sm-3">
+                                <div class="progress-container">
+                                    <div class="progressName" id="pro{{forloop.counter}}" data-value="{{item.value}}"
+                                        data-color="#1894ff"></div>
+                                    <h3>{{item.name}}</h3>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="technical-skills">
+                        <div class="mrkayo-main-title">
+                            <h2>
+                                Technical Skills
+                                <span class="kayo-line"></span>
+                            </h2>
+                        </div>
+                        <div class="row">
+                            {% for item in technical %}
+                            <div class="col-sm-6">
+                                <div class="progress-bar-container primary-style">
+                                    <span class="timer" data-from="0" data-to="{{item.value}}" data-speed="1100"
+                                        data-refresh-interval="50">0</span>
+                                    <div class="progress">
+                                        <div class="progress-bar active" role="progressbar"
+                                            aria-valuenow="{{item.value}}" aria-valuemin="0" aria-valuemax="100"
+                                            style="width: 0%"></div>
+                                    </div>
+                                    <h3>{{item.name}}</h3>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock resume %}

@@ -1,0 +1,180 @@
+{% load static %}
+{% block aboutme %}
+
+<section class="full-page" id="aboutMe">
+    <div class="aboutMe overlay-container">
+            <!-- Intro Section -->
+        <div class="kayo-intro-section">
+                <div class="overlay">
+                    <div class="section-intro">
+                        <div class="text-center kayo-icon-box-container">
+                            <div class="kayo-icon-box">
+                                <span class="glyphicon glyphicon-user kayo-icon"></span>
+                            </div>
+                        </div>
+                        <h1 class="text-center">
+                            ABOUT ME
+                        </h1>
+                    </div>
+                </div>
+        </div>
+            <!-- Start know Me -->
+        <div class="my-information">
+                <div class="kayo-container">
+                    <div class="mrkayo-main-title">
+                        <h2>
+                            KNOW ME
+                            <span class="kayo-line"></span>
+                        </h2>
+                    </div>
+                    {% for item in about %}
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="my-image">
+                                <img src="{{ item.imageURL }}" class="img-responsive" alt="">
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="kayo-info-detail">
+                                <h3>HELLO,</h3>
+                                <p>
+                                    {{ item.description|safe }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+        </div>
+            <!-- Start My Service -->
+        <div class="kayo-service">
+                <div class="overlay">
+                    <div class="kayo-container">
+                        <div class="mrkayo-main-title">
+                            <h2>
+                                Service
+                                <span class="kayo-line"></span>
+                            </h2>
+                        </div>
+                        <div class="row">
+                            {% for item in service  %}
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="kayo-icon-list-box">
+                                    <div class="kayo-icon-box-container">
+                                        <div class="kayo-icon-box">
+                                            <span class="{{item.service_icon}} kayo-icon"></span>
+                                        </div>
+                                    </div>
+                                    <div class="kayo-list-info">
+                                        <h4>{{item.service}}</h4>
+                                        <p>
+                                            {{item.service_des|safe }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+        </div>
+            <!-- Start Me Clients -->
+        <div class="my-clients-logo">
+                <div class="kayo-container">
+                    <div class="mrkayo-main-title">
+                        <h2>
+                            My Clients
+                            <span class="kayo-line"></span>
+                        </h2>
+                    </div>
+                    <div class="clients-slider">
+                        {% for item in client  %}
+                        <div class="client-logo">
+                            <a href="{{item.link}}" target="_blank">
+                                <img src="{{ item.imageURL }}" alt="{{item.client_name}}">
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+        </div>
+            <!-- Start Facts About Me -->
+        <div class="kayo-facts-about-me">
+                <div class="kayo-container overlay">
+                    <div class="mrkayo-main-title">
+                        <h2>
+                            Awesome Facts
+                            <span class="kayo-line"></span>
+                        </h2>
+                    </div>
+                    <div class="kayo-info-list">
+                        <div class="row">
+                            {% for item in fact  %}
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="single-info">
+                                    <p class="info-icon">
+                                        <i class={{item.fact_icon}}></i>
+                                        <span class="facts-numbers" data-from="0" data-to={{item.count}}
+                                            data-speed="1100"></span>
+                                    </p>
+                                    <h3> {{item.fact_title}} </h3>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+        </div>
+                <!-- Start Testimonials -->
+        <div class="testimonials">
+            <div class="kayo-container">
+                <div class="mrkayo-main-title">
+                    <h2>
+                        Testimonials
+                        <span class="kayo-line"></span>
+                    </h2>
+                </div>
+                <div class="testimonials-slider-container">
+                    <!-- Testimonials Slider -->
+                    <div class="testimonials-slider">
+                       
+
+                        {% for item in profile %}
+                        <!-- Testimonials Slider Box -->
+                        <div class="testi-box text-center">
+                            <div class="img-box">
+                                <img src="{{ item.imageURL }}" alt="">
+                            </div>
+                            <div class="testi-user-info">
+                                <h3>{{ item.name }}</h3>
+                                <h5>{{ item.position }}</h5>
+                            </div>
+                            <div class="testi-desc-box">
+                                <i>“</i>
+                                <p>
+                                    {{ item.des|safe }}
+                                </p>
+                                <i>”</i>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- Silder Paging -->
+                    <ul class="paging-container list-unstyled text-center list-inline">
+                        <li class="testimonials-arrows" id="testimonial-prevArrow">
+                            <div class="testimonials-client-page"></div>
+                            <i class="pe-7s-angle-left"></i>
+                        </li>
+                        <li id="testimonial-paging"></li>
+                        <li class="testimonials-arrows" id="testimonial-nextArrow">
+                            <div class="testimonials-client-page"></div>
+                            <i class="pe-7s-angle-right"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock aboutme %}
